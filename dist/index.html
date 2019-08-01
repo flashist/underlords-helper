@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dota Underlords Helper</title>
+
+    <!--JS-->
+    <!--Common-->
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <!--My-->
+    <script src="./js/flashist-lib.js"></script>
+    <script src="./js/underlords-helper-lib.js"></script>
+
+    <!--CSS-->
+    <style>
+        /*Constants*/
+        :root {
+            --tier-icon-width: 60px;
+            --tier-icon-height: 60px;
+            --tier-icon-margin: 4px;
+
+            --hero-alliance-icon-width: 15px;
+            --hero-alliance-icon-height: 15px;
+        }
+
+        body {
+            font-family: Helvetica, Arial, sans;
+            color: grey;
+
+            background-color: #0f0f0f;
+        }
+
+        .main-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .column-container {
+            width: 50%;
+        }
+
+        .hero-icons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            padding-bottom: 10px;
+
+            /*background-color: DodgerBlue;*/
+        }
+
+        .tier-icon {
+            width: var(--tier-icon-width);
+            height: var(--tier-icon-height);
+            background-size: var(--tier-icon-width) var(--tier-icon-height);
+            margin: var(--tier-icon-margin);
+            text-align: center;
+        }
+
+        .hero-alliances-icons-container {
+            display: flex;
+            /*flex-wrap: wrap;*/
+            justify-content: flex-end;
+            align-items: flex-end;
+
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-alliance-icon {
+            width: var(--hero-alliance-icon-width);
+            height: var(--hero-alliance-icon-height);
+            background-size: var(--hero-alliance-icon-width) var(--hero-alliance-icon-height);
+            margin: 2px;
+        }
+
+        .heroes-list {
+            margin-bottom: 10px;
+        }
+
+        .column-title {
+            font-size: 24pt;
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 18pt;
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+
+        .block-title {
+            font-size: 12pt;
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+
+        .suggested-combination-sup-sub {
+            display: inline-block;
+            margin-right: 10px
+        }
+
+        .suggested-combination-super-script {
+            position: relative;
+            display: block;
+            font-size: .75em;
+            line-height: 1.2;
+
+            color: #f44336;
+            top: .5em;
+        }
+
+        .suggested-combination-sub-script {
+            position: relative;
+            display: block;
+            font-size: .75em;
+            line-height: 1.2;
+
+            color: #4CAF50;
+            top: .3em;
+        }
+        
+    </style>
+
+    <script>
+        // var settings;
+
+        function onBodyLoad() {
+            console.log("onBodyLoad");
+
+            /*$.getJSON(
+                "./settings.json",
+                function (data) {
+                    settings = data;
+                    init();
+                }
+            );*/
+            var tempPath = "./settings.json";
+            loadJsonFile(tempPath)
+                .then(
+                    (data) => {
+                        document.underlordsHelperTools.CommonTools.settings = data;
+                        init();
+                    }
+                );
+        }
+
+        function loadJsonFile(filePath) {
+            return new Promise(
+                (resolve) => {
+                    $.getJSON(
+                        filePath,
+                        function (data) {
+                            resolve(data);
+                        }
+                    );
+                }
+            );
+        }
+
+        function init() {
+            var startTime = Date.now();
+            console.log('init __ start: ' + startTime);
+
+            // calculateBuildsData();
+            createGameTierElements();
+
+            var endTime = Date.now();
+            console.log('init __ end: ' + endTime + " | init time: " + (endTime - startTime));
+        }
+
+        function createGameTierElements() {
+            console.log("createGameTierElements");
+
+            var gameColumnContainer = document.getElementById("game-column");
+            for (var tier = document.underlordsHelperTools.CommonTools.settings.game.minTier; tier <= document.underlordsHelperTools.CommonTools.settings.game.maxTier; tier++) {
+                // var tierName = getTierBlockId(tier);
+
+                var blockId = getTierBlockId(tier);
+                var blockTitle = `Tier ${tier}`;
+
+                var tierBlock = createHeroesListBlock(blockId, blockTitle);
+                $(gameColumnContainer).append(tierBlock);
+
+                var heroes = document.underlordsHelperTools.CommonTools.getHeroesDataByTier(tier, tier);
+                heroes.sort(document.underlordsHelperTools.CommonTools.compareHeroes);
+                // for (var hero of heroes) {
+                var heroesCount = heroes.length;
+                for (var heroIndex = 0; heroIndex < heroesCount; heroIndex++) {
+                    var heroData = heroes[heroIndex];
+                    var iconsContainer = document.getElementById(blockId).querySelector(".hero-icons-container");
+
+                    var heroIconText = createHeroIconElement(heroData.name, false, true);
+                    $(iconsContainer).append(heroIconText);
+                }
+            }
+        }
+
+        function createHeroesListBlock(id, title) {
+            var blockText = `<div class="heroes-list" id="${id}">
+                                <div class="block-title">${title}</div>
+                                <div class="hero-icons-container"></div>
+                            </div>`;
+
+            return $(blockText);
+        }
+
+        function getTierBlockId(tier) {
+            return `heroesTier${tier}`;
+        }
+
+        function getCombinationBlockId(combinationData) {
+            return `combination_${combinationData.hash}`;
+        }
+
+        function getCombinationTitle(combinationData) {
+
+            var allianceKeys = Object.keys(combinationData.alliancesMap);
+            allianceKeys.sort(
+                (allianceName1, allianceName2) => {
+                    var allianceData1 = combinationData.alliancesMap[allianceName1];
+                    var allianceData2 = combinationData.alliancesMap[allianceName2];
+
+                    var sortResult = 0;
+                    if (allianceData1.level > allianceData2.level) {
+                        sortResult = -1;
+                    } else if (allianceData1.level < allianceData2.level) {
+                        sortResult = 1;
+
+                    } else {
+
+                        if (allianceData1.count > allianceData2.count) {
+                            sortResult = -1;
+                        } else if (allianceData1.count < allianceData2.count) {
+                            sortResult = 1;
+
+                        } else {
+
+                            if (allianceData1.name < allianceData2.name) {
+                                sortResult = -1;
+                            } else if (allianceData1.name > allianceData2.name) {
+                                sortResult = 1;
+                            }
+
+                        }
+
+                    }
+
+                    return sortResult;
+                }
+            );
+
+            var result = "";
+
+            var allianceKeysCount = allianceKeys.length;
+            for (var allianceIndex = 0; allianceIndex < allianceKeysCount; allianceIndex++) {
+                var allianceName = allianceKeys[allianceIndex];
+                var allianceData = combinationData.alliancesMap[allianceName];
+
+                result += `
+                    ${allianceData.name.toUpperCase()}
+                    <span class="suggested-combination-sup-sub">
+                      <sup class="suggested-combination-super-script">Lvl. ${allianceData.level}</sup>
+                      <sub class="suggested-combination-sub-script">x${allianceData.count}</sub>
+                    </span>
+                `;
+            }
+
+            return result;
+        }
+
+        function createHeroIconElement(heroName, isPlayer, isTier, opacity) {
+            var heroData = document.underlordsHelperTools.CommonTools.getHeroDataByName(heroName);
+
+            if (!opacity) {
+                opacity = 1;
+            }
+
+            var onClickCallbackText = "";
+            if (isPlayer) {
+                onClickCallbackText = "onPlayerHeroIconClick(this)";
+            } else if (isTier) {
+                onClickCallbackText = "onGameHeroIconClick(this)";
+            }
+            // alert("onClickCallbackText: " + onClickCallbackText + " | isPlayer: " + isPlayer + " | isTier: " + isTier);
+            var heroIconText = `<div onclick="${onClickCallbackText}" heroname="${heroData.name}" class="tier-icon" style="background-image: url(${heroData.imageUrl}); opacity: ${opacity};"><div class="hero-alliances-icons-container">`;
+            // alert("heroIconText: " + heroIconText);
+
+            for (var alliance of heroData.alliances) {
+                var allianceData = document.underlordsHelperTools.CommonTools.getAllianceDataByName(alliance);
+
+                heroIconText += `<div class="hero-alliance-icon" style="background-image: url(${allianceData.imageUrl});"></div>`;
+            }
+
+            heroIconText += `</div></div>`;
+            var result = $(heroIconText);
+            return result;
+        }
+
+
+        // - - - - -
+        /*Global Data Processor*/
+        async function commitData() {
+            var playerHeroesIconContainer = document.getElementById("playerHeroes").querySelector(".hero-icons-container");
+            playerHeroesIconContainer.innerHTML = "";
+
+            var playerHeroesCount = player.heroes.length;
+            for (var playerHeroIndex = 0; playerHeroIndex < playerHeroesCount; playerHeroIndex++) {
+                var heroName = player.heroes[playerHeroIndex];
+                var heroIconText = createHeroIconElement(heroName, true, false);
+                $(playerHeroesIconContainer).append(heroIconText);
+            }
+
+            // Suggested Combinations
+            //
+            // Clear the prvevious ones
+            var suggestedCombinationsContainer = document.getElementById("suggested-combinations-inner-container");
+            suggestedCombinationsContainer.innerHTML = "";
+            //
+            var heroGeneratedDataItems = [];
+            var availableCombinations = [];
+            for (var playerHeroIndex = 0; playerHeroIndex < playerHeroesCount; playerHeroIndex++) {
+                var heroName = player.heroes[playerHeroIndex];
+                var singleHeroGeneratedData = await document.underlordsHelperTools.ReadTools.readHeroGeneratedData(heroName);
+                heroGeneratedDataItems.push(singleHeroGeneratedData);
+                availableCombinations.push(...singleHeroGeneratedData.combinations);
+            }
+
+            var uniqueHeroIds = document.flashistTools.ArrayTools.getUniqueItems(player.heroes);
+            var bestCombinations = getBestCombinations(uniqueHeroIds, availableCombinations);
+            var combinationsCount = bestCombinations.length;
+            for (var combinationIndex = 0; combinationIndex < combinationsCount; combinationIndex++) {
+                var combinationData = bestCombinations[combinationIndex];
+                addSuggestedCombination(combinationData);
+            }
+        }
+
+        function getBestCombinations(sourceHeroIds, availableCombinations) {
+            var combinationHashesMap = {
+                // index: hash
+                // value: {sourceHeroIdsIncludedCount: }
+            };
+            availableCombinations = availableCombinations.filter(
+                (singleCombination) => {
+                    var filterResult = false;
+
+                    if (!combinationHashesMap[singleCombination.hash]) {
+                        filterResult = true;
+
+                        var sourceHeroIdsIncludedCount = 0;
+                        for (var singelSourceHeroId of sourceHeroIds) {
+                            if (singleCombination.hash.indexOf(singelSourceHeroId) !== -1) {
+                                sourceHeroIdsIncludedCount++;
+                            }
+                        }
+
+                        combinationHashesMap[singleCombination.hash] = {
+                            sourceHeroIdsIncludedCount: sourceHeroIdsIncludedCount
+                        };
+                    }
+
+                    return filterResult;
+                }
+            );
+
+            // The better combinations are, the earlier they are placed
+            availableCombinations.sort(
+                (combination1, combination2) => {
+                    var sortResult = 0;
+
+                    var sourceHeroIdsCount1 = combinationHashesMap[combination1.hash];
+                    var sourceHeroIdsCount2 = combinationHashesMap[combination2.hash];
+
+                    // First of all sort by amount of used source heroes (heroes which a user clicked on)
+                    if (sourceHeroIdsCount1 > sourceHeroIdsCount2) {
+                        sortResult = -1;
+                    } else if (sourceHeroIdsCount1 < sourceHeroIdsCount2) {
+                        sortResult = 1;
+
+                    } else {
+                        // Then sort by the regular compare function
+                        sortResult = document.underlordsHelperTools.CompareTools.compareCombinations(combination1, combination2);
+                    }
+
+                    return sortResult;
+                }
+            );
+
+            //
+            var bestCombinations = availableCombinations.slice(0, document.underlordsHelperTools.CommonTools.settings.game.maxSuggestedCombinations);
+            console.log("bestCombinations: ", bestCombinations);
+            return bestCombinations;
+        }
+
+        function addSuggestedCombination(combinationData) {
+            var blockId = getCombinationBlockId(combinationData);
+            var blockTitle = getCombinationTitle(combinationData);
+
+            var suggestedCombinationsContainer = document.getElementById("suggested-combinations-inner-container");
+            var combinationBlock = createHeroesListBlock(blockId, blockTitle);
+            $(suggestedCombinationsContainer).append(combinationBlock);
+
+            /*var heroes = getHeroesDataByTier(tier, tier);
+            for (var hero of heroes) {*/
+            var sortedHeroNames = combinationData.heroes.concat();
+            sortedHeroNames.sort(document.underlordsHelperTools.CompareTools.compareHeroes);
+            //
+            var heroesCount = sortedHeroNames.length;
+            for (var heroIndex = 0; heroIndex < heroesCount; heroIndex++) {
+                var heroName = sortedHeroNames[heroIndex];
+                var iconsContainer = document.getElementById(blockId).querySelector(".hero-icons-container");
+
+                var opacity = 1;
+                if (player.heroes.indexOf(heroName) === -1) {
+                    opacity = 0.5;
+                }
+
+                var heroIconText = createHeroIconElement(heroName, false, false, opacity);
+                $(iconsContainer).append(heroIconText);
+            }
+        }
+        
+        // - - - - -
+        /*Game*/
+        function onGameHeroIconClick(element) {
+            var heroName = element.getAttribute("heroname");
+            addPlayerHero(heroName);
+        }
+        
+        
+        // - - - - -
+        /*Player*/
+        var player = {
+            heroes: [],
+            level: 1
+        };
+
+        function onPlayerHeroIconClick(element) {
+            var heroName = element.getAttribute("heroname");
+            removePlayerHero(heroName);
+        }
+
+        /*Heroes*/
+        function addPlayerHero(heroName) {
+            if (player.heroes.length > document.underlordsHelperTools.CommonTools.settings.game.maxPlayerHeroes) {
+                alert("Heroes limit reached!");
+                return;
+            }
+
+            player.heroes.push(heroName);
+            player.heroes.sort();
+
+            commitData();
+        }
+
+        function removePlayerHero(heroName) {
+            var heroIndex = player.heroes.indexOf(heroName);
+            if (heroIndex >= 0) {
+                player.heroes.splice(heroIndex, 1);
+            }
+
+            player.heroes.sort();
+
+            commitData();
+        }
+
+        /*Level*/
+        function levelIncrease() {
+            document.getElementById("level").stepUp();
+        }
+
+        function levelDecrease() {
+            document.getElementById("level").stepDown();
+        }
+    </script>
+</head>
+<body onload="onBodyLoad();">
+
+<div class="main-wrapper">
+
+    <div class="column-container" id="player-column">
+        <div class="column-title">YOU</div>
+
+        <div class="section-title">HEROES (max. 10, click to remove)</div>
+        <div class="heroes-list" id="playerHeroes">
+            <div class="hero-icons-container">
+            </div>
+        </div>
+
+        <div id="suggested-combinations-container">
+            <div class="section-title">SUGGESTED COMBINATIONS</div>
+
+            <div id="suggested-combinations-inner-container"></div>
+            <!--<div class="heroes-list" id="suggestedBuild1">
+                <div class="block-title">[2]SAVVAGEx3 [3]MAGEx2</div>
+                <div class="hero-icons-container">
+                </div>
+            </div>-->
+        </div>
+
+    </div>
+
+    <div class="column-container" id="game-column">
+
+        <div class="column-title">GAME</div>
+
+        <!--Game Heroes-->
+        <div class="section-title">HEROES (click to select)</div>
+        <!--<div class="heroes-list" id="heroesTier1">
+            <div class="block-title">Tier 1</div>
+            <div class="hero-icons-container">
+            </div>
+        </div>
+
+        <div class="heroes-list" id="heroesTier2">
+            <div class="block-title">Tier 2</div>
+            <div class="hero-icons-container">
+            </div>
+        </div>
+        <div class="heroes-list" id="heroesTier3">
+            <div class="block-title">Tier 3</div>
+            <div class="hero-icons-container">
+            </div>
+        </div>
+        <div class="heroes-list" id="heroesTier4">
+            <div class="block-title">Tier 4</div>
+            <div class="hero-icons-container">
+            </div>
+        </div>
+        <div class="heroes-list" id="heroesTier5">
+            <div class="block-title">Tier 5</div>
+            <div class="hero-icons-container">
+            </div>
+        </div>-->
+
+    </div>
+</div>
+
+</body>
+</html>

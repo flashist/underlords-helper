@@ -1,0 +1,1011 @@
+{
+  "game": {
+    "minTier": 1,
+    "maxTier": 5,
+    "maxPlayerHeroes": 10,
+    "maxSuggestedCombinations": 20,
+    "minHeroesForCombination": 4,
+    "maxSingleHeroCombinations": 2000
+  },
+  "heroes_small": [
+    {
+      "name": "BOUNTY-HUNTER",
+      "imageUrl": "images/heroes/npc_dota_hero_bounty_hunter_png.png",
+      "tier": 1,
+      "alliances": [
+        "scrappy",
+        "assassin"
+      ]
+    },
+    {
+      "name": "MORPHLING",
+      "imageUrl": "images/heroes/npc_dota_hero_morphling_png.png",
+      "tier": 2,
+      "alliances": [
+        "primordial",
+        "assassin"
+      ]
+    },
+    {
+      "name": "PHANTOM-ASSASSIN",
+      "imageUrl": "images/heroes/npc_dota_hero_phantom_assassin_png.png",
+      "tier": 3,
+      "alliances": [
+        "elusive",
+        "assassin"
+      ]
+    },
+    {
+      "name": "QUEEN-OF-PAIN",
+      "imageUrl": "images/heroes/npc_dota_hero_queenofpain_png.png",
+      "tier": 2,
+      "alliances": [
+        "demon",
+        "assassin"
+      ]
+    },
+    {
+      "name": "SAND-KING",
+      "imageUrl": "images/heroes/npc_dota_hero_sand_king_png.png",
+      "tier": 4,
+      "alliances": [
+        "savage",
+        "assassin"
+      ]
+    },
+    {
+      "name": "SLARK",
+      "imageUrl": "images/heroes/npc_dota_hero_slark_png.png",
+      "tier": 3,
+      "alliances": [
+        "scaled",
+        "assassin"
+      ]
+    },
+    {
+      "name": "TEMPLAR-ASSASSIN",
+      "imageUrl": "images/heroes/npc_dota_hero_templar_assassin_png.png",
+      "tier": 4,
+      "alliances": [
+        "elusive",
+        "assassin"
+      ]
+    },
+    {
+      "name": "VIPER",
+      "imageUrl": "images/heroes/npc_dota_hero_viper_png.png",
+      "tier": 3,
+      "alliances": [
+        "dragon",
+        "assassin"
+      ]
+    },
+    {
+      "name": "BLOODSEEKER",
+      "imageUrl": "images/heroes/npc_dota_hero_bloodseeker_png.png",
+      "tier": 1,
+      "alliances": [
+        "human",
+        "assassin"
+      ]
+    },
+    {
+      "name": "ALCHEMIST",
+      "imageUrl": "images/heroes/npc_dota_hero_alchemist_png.png",
+      "tier": 4,
+      "alliances": [
+        "scrappy",
+        "warlock"
+      ]
+    }
+  ],
+  "heroes": [
+    {
+      "name": "ALCHEMIST",
+      "imageUrl": "images/heroes/npc_dota_hero_alchemist_png.png",
+      "tier": 4,
+      "alliances": [
+        "scrappy",
+        "warlock"
+      ]
+    },
+    {
+      "name": "BOUNTY-HUNTER",
+      "imageUrl": "images/heroes/npc_dota_hero_bounty_hunter_png.png",
+      "tier": 1,
+      "alliances": [
+        "scrappy",
+        "assassin"
+      ]
+    },
+    {
+      "name": "CLOCKWERK",
+      "imageUrl": "images/heroes/npc_dota_hero_rattletrap_png.png",
+      "tier": 3,
+      "alliances": [
+        "scrappy",
+        "inventor"
+      ]
+    },
+    {
+      "name": "TECHIES",
+      "imageUrl": "images/heroes/npc_dota_hero_techies_png.png",
+      "tier": 5,
+      "alliances": [
+        "scrappy",
+        "inventor"
+      ]
+    },
+    {
+      "name": "TIMBERSAW",
+      "imageUrl": "images/heroes/npc_dota_hero_shredder_png.png",
+      "tier": 2,
+      "alliances": [
+        "scrappy",
+        "inventor"
+      ]
+    },
+    {
+      "name": "TINKER",
+      "imageUrl": "images/heroes/npc_dota_hero_tinker_png.png",
+      "tier": 3,
+      "alliances": [
+        "scrappy",
+        "inventor"
+      ]
+    },
+    {
+      "name": "ABADDON",
+      "imageUrl": "images/heroes/npc_dota_hero_abaddon_png.png",
+      "tier": 3,
+      "alliances": [
+        "heartless",
+        "knight"
+      ]
+    },
+    {
+      "name": "ANTI-MAGE",
+      "imageUrl": "images/heroes/npc_dota_hero_antimage_png.png",
+      "tier": 1,
+      "alliances": [
+        "elusive",
+        "demonhunter"
+      ]
+    },
+    {
+      "name": "AXE",
+      "imageUrl": "images/heroes/npc_dota_hero_axe_png.png",
+      "tier": 1,
+      "alliances": [
+        "brawny",
+        "warrior"
+      ]
+    },
+    {
+      "name": "BATRIDER",
+      "imageUrl": "images/heroes/npc_dota_hero_batrider_png.png",
+      "tier": 1,
+      "alliances": [
+        "troll",
+        "knight"
+      ]
+    },
+    {
+      "name": "BEASTMASTER",
+      "imageUrl": "images/heroes/npc_dota_hero_beastmaster_png.png",
+      "tier": 2,
+      "alliances": [
+        "brawny",
+        "hunter"
+      ]
+    },
+    {
+      "name": "CHAOS-KNIGHT",
+      "imageUrl": "images/heroes/npc_dota_hero_chaos_knight_png.png",
+      "tier": 2,
+      "alliances": [
+        "demon",
+        "knight"
+      ]
+    },
+    {
+      "name": "CRYSTAL-MAIDEN",
+      "imageUrl": "images/heroes/npc_dota_hero_crystal_maiden_png.png",
+      "tier": 2,
+      "alliances": [
+        "human",
+        "mage"
+      ]
+    },
+    {
+      "name": "DISRUPTOR",
+      "imageUrl": "images/heroes/npc_dota_hero_disruptor_png.png",
+      "tier": 4,
+      "alliances": [
+        "brawny",
+        "shaman",
+        "warlock"
+      ]
+    },
+    {
+      "name": "DOOM",
+      "imageUrl": "images/heroes/npc_dota_hero_doom_bringer_png.png",
+      "tier": 4,
+      "alliances": [
+        "demon",
+        "warrior"
+      ]
+    },
+    {
+      "name": "DRAGON-KNIGHT",
+      "imageUrl": "images/heroes/npc_dota_hero_dragon_knight_png.png",
+      "tier": 4,
+      "alliances": [
+        "human",
+        "dragon",
+        "knight"
+      ]
+    },
+    {
+      "name": "DROW-RANGER",
+      "imageUrl": "images/heroes/npc_dota_hero_drow_ranger_png.png",
+      "tier": 1,
+      "alliances": [
+        "heartless",
+        "hunter"
+      ]
+    },
+    {
+      "name": "ENCHANTRESS",
+      "imageUrl": "images/heroes/npc_dota_hero_enchantress_png.png",
+      "tier": 1,
+      "alliances": [
+        "savage",
+        "druid"
+      ]
+    },
+    {
+      "name": "ENIGMA",
+      "imageUrl": "images/heroes/npc_dota_hero_enigma_png.png",
+      "tier": 5,
+      "alliances": [
+        "primordial",
+        "warlock"
+      ]
+    },
+    {
+      "name": "NATURE'S-PROPHET",
+      "imageUrl": "images/heroes/npc_dota_hero_furion_png.png",
+      "tier": 2,
+      "alliances": [
+        "elusive",
+        "druid"
+      ]
+    },
+    {
+      "name": "GYROCOPTER",
+      "imageUrl": "images/heroes/npc_dota_hero_gyrocopter_png.png",
+      "tier": 5,
+      "alliances": [
+        "deadeye",
+        "inventor"
+      ]
+    },
+    {
+      "name": "JUGGERNAUT",
+      "imageUrl": "images/heroes/npc_dota_hero_juggernaut_png.png",
+      "tier": 2,
+      "alliances": [
+        "brawny",
+        "warrior"
+      ]
+    },
+    {
+      "name": "KEEPER-OF-THE-LIGHT",
+      "imageUrl": "images/heroes/npc_dota_hero_keeper_of_the_light_png.png",
+      "tier": 4,
+      "alliances": [
+        "human",
+        "mage"
+      ]
+    },
+    {
+      "name": "KUNKKA",
+      "imageUrl": "images/heroes/npc_dota_hero_kunkka_png.png",
+      "tier": 4,
+      "alliances": [
+        "human",
+        "warrior"
+      ]
+    },
+    {
+      "name": "LICH",
+      "imageUrl": "images/heroes/npc_dota_hero_lich_png.png",
+      "tier": 5,
+      "alliances": [
+        "heartless",
+        "mage"
+      ]
+    },
+    {
+      "name": "LINA",
+      "imageUrl": "images/heroes/npc_dota_hero_lina_png.png",
+      "tier": 3,
+      "alliances": [
+        "human",
+        "mage"
+      ]
+    },
+    {
+      "name": "LONE-DRUID",
+      "imageUrl": "images/heroes/npc_dota_hero_lone_druid_png.png",
+      "tier": 4,
+      "alliances": [
+        "savage",
+        "druid"
+      ]
+    },
+    {
+      "name": "LUNA",
+      "imageUrl": "images/heroes/npc_dota_hero_luna_png.png",
+      "tier": 2,
+      "alliances": [
+        "elusive",
+        "knight"
+      ]
+    },
+    {
+      "name": "LYCAN",
+      "imageUrl": "images/heroes/npc_dota_hero_lycan_png.png",
+      "tier": 3,
+      "alliances": [
+        "human",
+        "savage",
+        "warrior"
+      ]
+    },
+    {
+      "name": "MEDUSA",
+      "imageUrl": "images/heroes/npc_dota_hero_medusa_png.png",
+      "tier": 5,
+      "alliances": [
+        "scaled",
+        "hunter"
+      ]
+    },
+    {
+      "name": "MORPHLING",
+      "imageUrl": "images/heroes/npc_dota_hero_morphling_png.png",
+      "tier": 2,
+      "alliances": [
+        "primordial",
+        "assassin"
+      ]
+    },
+    {
+      "name": "NECROPHOS",
+      "imageUrl": "images/heroes/npc_dota_hero_necrolyte_png.png",
+      "tier": 4,
+      "alliances": [
+        "heartless",
+        "warlock"
+      ]
+    },
+    {
+      "name": "OGRE-MAGI",
+      "imageUrl": "images/heroes/npc_dota_hero_ogre_magi_png.png",
+      "tier": 1,
+      "alliances": [
+        "bloodbound",
+        "mage"
+      ]
+    },
+    {
+      "name": "OMNIKNIGHT",
+      "imageUrl": "images/heroes/npc_dota_hero_omniknight_png.png",
+      "tier": 3,
+      "alliances": [
+        "human",
+        "knight"
+      ]
+    },
+    {
+      "name": "PHANTOM-ASSASSIN",
+      "imageUrl": "images/heroes/npc_dota_hero_phantom_assassin_png.png",
+      "tier": 3,
+      "alliances": [
+        "elusive",
+        "assassin"
+      ]
+    },
+    {
+      "name": "PUCK",
+      "imageUrl": "images/heroes/npc_dota_hero_puck_png.png",
+      "tier": 2,
+      "alliances": [
+        "elusive",
+        "dragon",
+        "mage"
+      ]
+    },
+    {
+      "name": "QUEEN-OF-PAIN",
+      "imageUrl": "images/heroes/npc_dota_hero_queenofpain_png.png",
+      "tier": 2,
+      "alliances": [
+        "demon",
+        "assassin"
+      ]
+    },
+    {
+      "name": "RAZOR",
+      "imageUrl": "images/heroes/npc_dota_hero_razor_png.png",
+      "tier": 1,
+      "alliances": [
+        "primordial",
+        "mage"
+      ]
+    },
+    {
+      "name": "SAND-KING",
+      "imageUrl": "images/heroes/npc_dota_hero_sand_king_png.png",
+      "tier": 4,
+      "alliances": [
+        "savage",
+        "assassin"
+      ]
+    },
+    {
+      "name": "SHADOW-FIEND",
+      "imageUrl": "images/heroes/npc_dota_hero_nevermore_png.png",
+      "tier": 3,
+      "alliances": [
+        "demon",
+        "warlock"
+      ]
+    },
+    {
+      "name": "SHADOW-SHAMAN",
+      "imageUrl": "images/heroes/npc_dota_hero_shadow_shaman_png.png",
+      "tier": 1,
+      "alliances": [
+        "troll",
+        "shaman"
+      ]
+    },
+    {
+      "name": "SLARDAR",
+      "imageUrl": "images/heroes/npc_dota_hero_slardar_png.png",
+      "tier": 2,
+      "alliances": [
+        "scaled",
+        "warrior"
+      ]
+    },
+    {
+      "name": "SLARK",
+      "imageUrl": "images/heroes/npc_dota_hero_slark_png.png",
+      "tier": 3,
+      "alliances": [
+        "scaled",
+        "assassin"
+      ]
+    },
+    {
+      "name": "SNIPER",
+      "imageUrl": "images/heroes/npc_dota_hero_sniper_png.png",
+      "tier": 3,
+      "alliances": [
+        "deadeye",
+        "hunter"
+      ]
+    },
+    {
+      "name": "TEMPLAR-ASSASSIN",
+      "imageUrl": "images/heroes/npc_dota_hero_templar_assassin_png.png",
+      "tier": 4,
+      "alliances": [
+        "elusive",
+        "assassin"
+      ]
+    },
+    {
+      "name": "TERRORBLADE",
+      "imageUrl": "images/heroes/npc_dota_hero_terrorblade_png.png",
+      "tier": 3,
+      "alliances": [
+        "demon",
+        "demonhunter"
+      ]
+    },
+    {
+      "name": "TIDEHUNTER",
+      "imageUrl": "images/heroes/npc_dota_hero_tidehunter_png.png",
+      "tier": 4,
+      "alliances": [
+        "scaled",
+        "hunter"
+      ]
+    },
+    {
+      "name": "TINY",
+      "imageUrl": "images/heroes/npc_dota_hero_tiny_png.png",
+      "tier": 1,
+      "alliances": [
+        "primordial",
+        "warrior"
+      ]
+    },
+    {
+      "name": "TREANT-PROTECTOR",
+      "imageUrl": "images/heroes/npc_dota_hero_treant_png.png",
+      "tier": 3,
+      "alliances": [
+        "elusive",
+        "druid"
+      ]
+    },
+    {
+      "name": "TROLL-WARLORD",
+      "imageUrl": "images/heroes/npc_dota_hero_troll_warlord_png.png",
+      "tier": 5,
+      "alliances": [
+        "troll",
+        "warrior"
+      ]
+    },
+    {
+      "name": "TUSK",
+      "imageUrl": "images/heroes/npc_dota_hero_tusk_png.png",
+      "tier": 1,
+      "alliances": [
+        "savage",
+        "warrior"
+      ]
+    },
+    {
+      "name": "VENOMANCER",
+      "imageUrl": "images/heroes/npc_dota_hero_venomancer_png.png",
+      "tier": 1,
+      "alliances": [
+        "savage",
+        "warlock"
+      ]
+    },
+    {
+      "name": "VIPER",
+      "imageUrl": "images/heroes/npc_dota_hero_viper_png.png",
+      "tier": 3,
+      "alliances": [
+        "dragon",
+        "assassin"
+      ]
+    },
+    {
+      "name": "WINDRANGER",
+      "imageUrl": "images/heroes/npc_dota_hero_windrunner_png.png",
+      "tier": 2,
+      "alliances": [
+        "elusive",
+        "hunter"
+      ]
+    },
+    {
+      "name": "WITCH-DOCTOR",
+      "imageUrl": "images/heroes/npc_dota_hero_witch_doctor_png.png",
+      "tier": 2,
+      "alliances": [
+        "troll",
+        "warlock"
+      ]
+    },
+    {
+      "name": "PUDGE",
+      "imageUrl": "images/heroes/npc_dota_hero_pudge_png.png",
+      "tier": 2,
+      "alliances": [
+        "heartless",
+        "warrior"
+      ]
+    },
+    {
+      "name": "WARLOCK",
+      "imageUrl": "images/heroes/npc_dota_hero_warlock_png.png",
+      "tier": 1,
+      "alliances": [
+        "bloodbound",
+        "warlock"
+      ]
+    },
+    {
+      "name": "BLOODSEEKER",
+      "imageUrl": "images/heroes/npc_dota_hero_bloodseeker_png.png",
+      "tier": 1,
+      "alliances": [
+        "human",
+        "assassin"
+      ]
+    },
+    {
+      "name": "ARC-WARDEN",
+      "imageUrl": "images/heroes/npc_dota_hero_arc_warden_png.png",
+      "tier": 3,
+      "alliances": [
+        "primordial",
+        "shaman"
+      ]
+    },
+    {
+      "name": "MIRANA",
+      "imageUrl": "images/heroes/npc_dota_hero_mirana_png.png",
+      "tier": 4,
+      "alliances": [
+        "elusive",
+        "hunter"
+      ]
+    }
+  ],
+  "alliances": [
+    {
+      "name": "savage",
+      "imageUrl": "images/alliances/savage.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "Allies gain +10% Attack Damage."
+        },
+        {
+          "count": 4,
+          "text": "Allies gain +25% Attack Damage."
+        },
+        {
+          "count": 6,
+          "text": "Allies gain +45% Attack Damage."
+        }
+      ]
+    },
+    {
+      "name": "demon",
+      "imageUrl": "images/alliances/demon.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 1,
+          "text": "All Demon units gain +50% Pure Damage. Active when you have only one type of Demon unit on the board."
+        }
+      ]
+    },
+    {
+      "name": "dragon",
+      "imageUrl": "images/alliances/dragon.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "All Dragon units unlock an additional draconic ability."
+        }
+      ]
+    },
+    {
+      "name": "deadeye",
+      "imageUrl": "images/alliances/deadeye.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "All Deadeye units focus their attacks on the lowest-health enemy."
+        }
+      ]
+    },
+    {
+      "name": "primordial",
+      "imageUrl": "images/alliances/primordial.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "When hit, Primordial units have a 30% chance to disarm melee attackers for 4 seconds and a 10% to disarm ranged attackers for 4 seconds."
+        },
+        {
+          "count": 4,
+          "text": "When hit, Allies have a 30% chance to disarm melee attackers for 4 seconds and a 10% to disarm ranged attackers for 4 seconds."
+        }
+      ]
+    },
+    {
+      "name": "elusive",
+      "imageUrl": "images/alliances/elusive.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 3,
+          "text": "All Elusive units gain +20% Evasion."
+        },
+        {
+          "count": 6,
+          "text": "All Elusive units gain +45% Evasion."
+        },
+        {
+          "count": 9,
+          "text": "All Elusive units gain +75% Evasion."
+        }
+      ]
+    },
+    {
+      "name": "scrappy",
+      "imageUrl": "images/alliances/scrappy.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "A Random Scrappy unit is granted +9 Armor and +8 HP Regeneration. Armor and HP are doubled whenever you have fewer units alive than your opponent does."
+        },
+        {
+          "count": 4,
+          "text": "All Scrappy units are granted +9 Armor and +8 HP Regeneration. Armor and HP are doubled whenever you have fewer units alive than your opponent does."
+        },
+        {
+          "count": 6,
+          "text": "All allies are granted +9 Armor and +8 HP Regeneration. Armor and HP are doubled whenever you have fewer units alive than your opponent does."
+        }
+      ]
+    },
+    {
+      "name": "human",
+      "imageUrl": "images/alliances/human.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "All Human units gain a 20% chance to Silence target for 4 seconds when attacking."
+        },
+        {
+          "count": 4,
+          "text": "All Human units gain a 44% chance to Silence target for 4 seconds when attacking."
+        },
+        {
+          "count": 6,
+          "text": "All Human units gain a 66% chance to Silence target for 4 seconds when attacking."
+        }
+      ]
+    },
+    {
+      "name": "scaled",
+      "imageUrl": "images/alliances/scaled.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "Allies gain +30% Magic Resistance."
+        },
+        {
+          "count": 4,
+          "text": "Allies gain +50% Magic Resistance."
+        }
+      ]
+    },
+    {
+      "name": "bloodbound",
+      "imageUrl": "images/alliances/bloodbound.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "When a Blood-Bound unit dies, all other Blood-Bound units deal +100% Attack Damage for the rest of the battle."
+        }
+      ]
+    },
+    {
+      "name": "brawny",
+      "imageUrl": "images/alliances/brawny.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "All Brawny units have their maximum HP increased by 200."
+        },
+        {
+          "count": 4,
+          "text": "All Brawny units have their maximum HP increased by 500."
+        }
+      ]
+    },
+    {
+      "name": "troll",
+      "imageUrl": "images/alliances/troll.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "All Troll units gain +35 Attack Speed and other allies gain +10 Attack Speed."
+        },
+        {
+          "count": 4,
+          "text": "All Troll units gain +65 Attack Speed and other Allies gain +30 Attack Speed."
+        }
+      ]
+    },
+    {
+      "name": "heartless",
+      "imageUrl": "images/alliances/heartless.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "All Enemies suffer -5 Armor."
+        },
+        {
+          "count": 4,
+          "text": "All Enemies suffer -10 Armor."
+        },
+        {
+          "count": 6,
+          "text": "All Enemies suffer -15 Armor."
+        }
+      ]
+    },
+    {
+      "name": "assassin",
+      "imageUrl": "images/alliances/assassin.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 3,
+          "text": "All Assassins gain a 10% chance to Critical Hit for 300% Damage."
+        },
+        {
+          "count": 6,
+          "text": "All Assassins gain a 20% chance to Critical Hit for 400% Damage."
+        },
+        {
+          "count": 9,
+          "text": "All Assassins gain a 30% chance to Critical Hit for 500% Damage."
+        }
+      ]
+    },
+    {
+      "name": "demonhunter",
+      "imageUrl": "images/alliances/demonhunter.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 1,
+          "text": "Invalidate your opponent's Demon Alliance bonus."
+        },
+        {
+          "count": 2,
+          "text": "Invalidate your opponent's Demon Alliance bonus. All Demon units gain +50% Pure Damage."
+        }
+      ]
+    },
+    {
+      "name": "druid",
+      "imageUrl": "images/alliances/druid.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "At the beginning of combat, the lowest star ally Druid is upgraded a level."
+        },
+        {
+          "count": 4,
+          "text": "At the beginning of combat, the 2 lowest star ally Druids are upgraded a level each."
+        }
+      ]
+    },
+    {
+      "name": "hunter",
+      "imageUrl": "images/alliances/hunter.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 3,
+          "text": "All Hunters have a 20% chance of quickly performing 2 attacks."
+        },
+        {
+          "count": 6,
+          "text": "All Hunters have a 35% chance of quickly performing 2 attacks."
+        }
+      ]
+    },
+    {
+      "name": "knight",
+      "imageUrl": "images/alliances/knight.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "Knight units take -15% physical and magic damage and an additional -15% when standing 1 cell away from another Knight."
+        },
+        {
+          "count": 4,
+          "text": "Knight units take -20% physical and magic damage and an additional -20% when standing 1 cell away from another Knight."
+        },
+        {
+          "count": 6,
+          "text": "Knight units take -30% physical and magic damage and an additional -25% when standing 1 cell away from another Knight."
+        }
+      ]
+    },
+    {
+      "name": "mage",
+      "imageUrl": "images/alliances/mage.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 3,
+          "text": "Enemies suffer -40% Magic Resistance."
+        },
+        {
+          "count": 6,
+          "text": "Enemies suffer -100% Magic Resistance."
+        }
+      ]
+    },
+    {
+      "name": "inventor",
+      "imageUrl": "images/alliances/inventor.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "All Inventors gain +15 HP Regeneration."
+        },
+        {
+          "count": 4,
+          "text": "All Inventors gain +40 HP Regeneration."
+        }
+      ]
+    },
+    {
+      "name": "shaman",
+      "imageUrl": "images/alliances/shaman.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 3,
+          "text": "Enemies affected by Hexes, Silences or Stuns will generate -200% mana."
+        }
+      ]
+    },
+    {
+      "name": "warlock",
+      "imageUrl": "images/alliances/warlock.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 2,
+          "text": "Whenever a Warlock casts a spell, they form a link with the Ally who has the lowest percentage health for 3 seconds. When either linked hero deals damage, both units are healed 50% of the damage dealt."
+        },
+        {
+          "count": 4,
+          "text": "Whenever a Warlock casts a spell, they form a link with the Ally who has the lowest percentage health for 3 seconds. When either linked hero deals damage, both units are healed 80% of the damage dealt."
+        },
+        {
+          "count": 6,
+          "text": "Whenever a Warlock casts a spell, they form a link with the Ally who has the lowest percentage health for 3 seconds. When either linked hero deals damage, both units are healed 130% of the damage dealt."
+        }
+      ]
+    },
+    {
+      "name": "warrior",
+      "imageUrl": "images/alliances/warrior.png",
+      "bgColor": "#b2411a",
+      "levels": [
+        {
+          "count": 3,
+          "text": "All Warriors gain +10 Armor."
+        },
+        {
+          "count": 6,
+          "text": "All Warriors gain +15 Armor."
+        },
+        {
+          "count": 9,
+          "text": "All Warriors gain +25 Armor."
+        }
+      ]
+    }
+  ]
+}

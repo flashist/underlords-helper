@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "sourceMap": true,
+
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*",
+    "typings/**/*"
+  ],
+  "exclude": [
+    "src_old/**/*"
+  ],
+  "typeRoots": [
+    "./node_modules/@types"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "language": "en",
+  "texts": {
+    "gameName": "Deletris",
+    "gameNameWithSpaces": " Deletris ",
+    "scorePlusPattern": "+{score}",
+    "scoreMultiplierPattern": "x{multiplier}",
+    "warning": "WARNING",
+    "gameOver": "Game Over",
+    "scoreTitle": "Score:",
+    "tapToPlay": "TAP TO PLAY",
+    "tapToRemove": "TAP TO REMOVE",
+    "tapTwiceToRemove": "TAP x 2\nTO REMOVE",
+    "tapToExplode": "TAP TO EXPLODE",
+    "boom": "BOOM!",
+    "feedback": "In case of emergency email here:\ndeletris.game@gmail.com"
+  }
+}
